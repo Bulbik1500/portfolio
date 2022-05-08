@@ -1,23 +1,37 @@
 <?php
 
-$a = ["az", "toto", "picaro", "zone", "kiwi"];
+$a = ["I", "wish", "I", "hadn't", "come"];
 function PartsOfList($a)
 {
     $newArr = [];
-    $aa = $a;
-    $ab = $a;
+    $arryToReturn = [];
+    $aa =  $a;
+
     $i = 0;
-    $aArrayCount = count($a);
     foreach ($a as $valu) {
-        $aa[$i];
-        $i++;
-        $aaimpolde = implode(" ", $aa);
-        unset($ab[$aArrayCount - $i]);
-        $abimplode = implode(" ", $ab);
-        array_push($newArr, [$aaimpolde,$abimplode]);
-    }           
-    return $newArr;
+        if ($i < count($a) - 1) {
+            array_push($newArr, $valu);
+            unset($aa[count($a) - count($a) + $i]);
+            array_push($arryToReturn, $newArr, $aa);
+            $i++;
+        } else {
+            break;
+        }
+    }
+    $temp = [];
+    $y = 0;
+    foreach ($arryToReturn as $item) {
+        foreach ($item as $value) {
+            array_push($temp , $item[$y],$item[$y + 1]);
+            $y + 2;
+        }
+    }
+    return $arryToReturn;
 }
 
-
 print_r(PartsOfList($a));
+// $mergre = [];
+// foreach($arryToReturn as $item){
+//     $mergre = array_merge($mergre, $item);
+// }
+// $implode = implode(" ",$mergre);
