@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION["Logged"]) != true ){
+if (isset($_SESSION["Logged"]) != true) {
     header("Location: index.php");
     exit();
 }
@@ -18,13 +18,13 @@ if(isset($_SESSION["Logged"]) != true ){
 
 <body>
     <?php
-        echo "<p>Welcome ".$_SESSION["dbUser"].'! </p>';
-        echo "<p><b>Wood</b>: ".$_SESSION["dbWood"];
-        echo " | <b>Rocks</b>: ".$_SESSION["dbRock"];
-        echo " | <b>Wheet</b>: ".$_SESSION["dbWheet"]."</p>";
-        
-        echo "<p><b>E-mail</b>: ".$_SESSION["dbEmail"];
-        echo "<br /><b>Subscribtion expires in</b>: ".$_SESSION["dbSubscriber"]." days </p>";
+    echo "<p>Welcome " . $_SESSION["dbUser"] . '! </p><a href="logout.php"> Logout</a>';
+    echo "<p><b>Wood</b>: " . $_SESSION["dbWood"];
+    echo " | <b>Rocks</b>: " . $_SESSION["dbRock"];
+    echo " | <b>Wheet</b>: " . $_SESSION["dbWheet"] . "</p>";
+
+    echo "<p><b>E-mail</b>: " . $_SESSION["dbEmail"];
+    echo "<br /><b>Subscribtion expires in</b>: " . $_SESSION["dbSubscriber"] . " days </p>";
     ?>
 
 </body>
