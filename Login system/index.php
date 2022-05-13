@@ -22,6 +22,7 @@ if (isset($_SESSION["Logged"]) && $_SESSION["Logged"] == true) {
         Password:<br>
         <input type="password" name="pass"><br>
         <input type="submit" value="Login">
+        <a href="singin.php">register</a>
         <?php
         if (isset($_SESSION["error"])) {
             echo $_SESSION["error"];
