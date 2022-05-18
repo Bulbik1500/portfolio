@@ -23,8 +23,24 @@ if (isset($_SESSION["Logged"]) != true) {
     echo " | <b>Rocks</b>: " . $_SESSION["dbRock"];
     echo " | <b>Wheet</b>: " . $_SESSION["dbWheet"] . "</p>";
 
-    echo "<p><b>E-mail</b>: " . $_SESSION["dbEmail"];
-    echo "<br /><b>Subscribtion expires in</b>: " . $_SESSION["dbSubscriber"] . " days </p>";
+    echo "<p><b>E-mail</b>: " . $_SESSION["dbEmail"] . "<br>";
+    echo "<br /><b>Subscribtion expires in</b>: " . $_SESSION["dbSubscriber"] . "</p>";
+
+
+    // $date = new DateTime("2017-01-01 09:30:15");
+    $date = new DateTime();
+
+    echo $date->format("Y-m-d H:i:s") . "<br>";
+    $endSub = DateTime::createFromFormat("Y-m-d H:i:s", $_SESSION["dbSubscriber"]);
+    $diff = $date->diff($endSub);
+
+    if ($date < $endSub) {
+        echo "Subscribtion expires in: " . $diff->format("%y years, %m months, %d days");
+    } else {
+        echo "Subscribtion expired: " . $diff->format("%y years, %m months, %d days ") . "ago";
+    }
+
+
     ?>
 
 </body>

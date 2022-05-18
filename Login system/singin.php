@@ -85,10 +85,10 @@ if (isset($_POST["email"])) {
             }
             // ----------if all data is correct,add user to new database--------------
             if ($allDataIsGood == true) {
-                if ($connect->query("INSERT INTO uzytkownicy VALUES (null, '$nick' ,'$pass_hash' ,'$email' ,100 ,100 ,100 ,14)")){
+                if ($connect->query("INSERT INTO uzytkownicy VALUES (null, '$nick' ,'$pass_hash' ,'$email' ,100 ,100 ,100 , now() + INTERVAL 14 DAY)")) {
                     $_SESSION["successRegister"] = true;
                     header("Location: welcome.php");
-                }else{
+                } else {
                     throw new Exception(mysqli_connect_errno());
                 };
             }
@@ -97,7 +97,7 @@ if (isset($_POST["email"])) {
         }
     } catch (Exception $e) {
         echo "data base error, please try again later";
-    } 
+    }
 }
 
 ?>
